@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import { AddCategory } from './components/AddCategory';
+import { CardGrid } from './components/CardGrid';
 
 function App() {
+
+  const [categories, setCategories] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AddCategory setCategories={setCategories} />
+      <hr />
+
+      <ol>
+        {
+          categories.map(category => (
+            <CardGrid
+              key={category}
+              category={category}
+            />
+          ))
+        }
+      </ol>
+
+    </>
   );
 }
 
