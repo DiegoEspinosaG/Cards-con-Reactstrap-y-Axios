@@ -1,29 +1,49 @@
 import React, { useState } from 'react'
 import './App.css';
 import { AddCategory } from './components/AddCategory';
-import { CardGrid } from './components/CardGrid';
+import { PokeGridItem } from './components/PokeGridItem';
 
 function App() {
 
-  const [categories, setCategories] = useState([]);
+  //const [categories, setCategories] = useState('');
+  const [pokemon, setPokemon] = useState({
+    data: [],
+  })
 
   return (
-    <>
-      <AddCategory setCategories={setCategories} />
-      <hr />
 
-      <ol>
+    <>
+
+      <AddCategory /* setCategories={setCategories} */ setPokemon={setPokemon} />      
+
+      <div className='card-container'>
+
         {
-          categories.map(category => (
-            <CardGrid
-              key={category}
-              category={category}
-            />
-          ))
-        }
-      </ol>
+          pokemon.name !== undefined ? (
+            
+              <PokeGridItem pokemon={pokemon} />            
+            
+          ): ('')
+        }        
+
+        {/* <AddCategory setCategories={setCategories} />
+  <hr />
+
+  <ol>
+    {
+      categories.map(category => (
+        <CardGrid
+          key={category}
+          category={category}
+        />
+      ))
+    }
+  </ol> */}
+
+      </div>
 
     </>
+
   );
 }
 

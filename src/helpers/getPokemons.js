@@ -1,8 +1,7 @@
-import axios from 'axios';
 
 export const getPokemons = async( category ) => {
 
-    const url = `https://pokeapi.co/api/v2/pokemon/${ encodeURI( category ) }`;
+    /* const url = `https://pokeapi.co/api/v2/pokemon/${ encodeURI( category ) }`;
     axios.get( url )
         .then(resp => {
             const pokes = resp.data;
@@ -17,7 +16,7 @@ export const getPokemons = async( category ) => {
             })
         
             return pokemons;
-        })
+        }) */
 
 
     //const { data } = await resp.json();

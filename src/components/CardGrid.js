@@ -4,7 +4,7 @@ import { PokeGridItem } from './PokeGridItem';
 
 export const CardGrid = ({ category }) => {
 
-    const { data:images, loading } = useFetchPoke( category );
+    //const { data:images, loading } = useFetchPoke( category );
 
     return (
         <>
