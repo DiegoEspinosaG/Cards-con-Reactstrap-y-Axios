@@ -8,6 +8,7 @@ function App() {
   //const [categories, setCategories] = useState('');
   const [pokemon, setPokemon] = useState({
     data: [],
+    typeSearch: ''
   })
 
   return (
@@ -18,10 +19,18 @@ function App() {
 
       <div className='card-container'>
 
-        {
-          pokemon.name !== undefined ? (
+      {console.log('prepoke '+pokemon.data.name)}
+
+        {          
+          pokemon.data.name !== undefined ? (
             
-              <PokeGridItem pokemon={pokemon} />            
+              pokemon.typeSearch === 'pokemon' ? (
+                <PokeGridItem pokemon={pokemon.data} type='pokemon' setPokemon={setPokemon}/>                
+              ): (
+                /* pokemon.data.map(poke => (
+                  <PokeGridItem pokemon={poke} type='type'/>
+                )) */'AAaaahhh'
+              )
             
           ): ('')
         }        

@@ -25,10 +25,10 @@ export const AddCategory = ({ /* setCategories, */ setPokemon }) => {
             //setCategories(inputValue);
 
             if (disableFields === 1) {
-                getPokemon('pokemon/'+inputValue);
+                getPokemon('pokemon/'+inputValue, 'pokemon');
             }
             else {
-                getPokemon('type/'+type);
+                getPokemon('type/'+type, 'type');
             }            
 
             setType('');
@@ -37,14 +37,18 @@ export const AddCategory = ({ /* setCategories, */ setPokemon }) => {
 
     }
 
-    const getPokemon = (ext) => {
+    const getPokemon = (ext, filter) => {
 
         const url = `https://pokeapi.co/api/v2/${encodeURI(ext)}`;
 
         axios.get(url)
             .then(res => {
                 console.log(res.data)
-                setPokemon(res.data)
+                console.log(filter);
+                setPokemon({
+                    data: res.data, 
+                    typeSearch: filter
+                })
             })
             .catch(
                 alert(`There is no endpoint ${ext} in the database`)
